@@ -1,0 +1,51 @@
+<view class="page">
+  <view class="user">
+    <view class="avatar avatar-lg">{{initial}}</view>
+    <view class="user-main">
+      <text class="user-name">{{user ? user.nickname : '未登录'}}</text>
+      <text class="user-sub" wx:if="{{user}}">微信用户 · 编号 {{user.userId}}</text>
+      <text class="user-sub" wx:else>登录后可管理就诊人与挂号记录</text>
+    </view>
+    <view class="btn btn-line btn-sm" wx:if="{{!user}}" hover-class="tap" bindtap="goLogin">登录</view>
+  </view>
+
+  <view class="panel">
+    <view class="row" hover-class="tap" bindtap="goPatients">
+      <view class="row-main">
+        <text class="row-title">就诊人管理</text>
+        <text class="row-sub">添加家人信息，挂号时可直接选择</text>
+      </view>
+      <view class="chev"></view>
+    </view>
+    <view class="row" hover-class="tap" bindtap="goOrders">
+      <view class="row-main">
+        <text class="row-title">我的挂号</text>
+        <text class="row-sub">查看预约状态与取消记录</text>
+      </view>
+      <view class="chev"></view>
+    </view>
+    <view class="row" hover-class="tap" bindtap="callHospital">
+      <view class="row-main">
+        <text class="row-title">联系门诊服务台</text>
+        <text class="row-sub">0571-8800 0010 · 08:00-21:00</text>
+      </view>
+      <view class="chev"></view>
+    </view>
+  </view>
+
+  <view class="panel second">
+    <view class="row" hover-class="tap" bindtap="goAdmin">
+      <view class="row-main">
+        <text class="row-title">管理后台</text>
+        <text class="row-sub">科室、医生与排班维护</text>
+      </view>
+      <view class="chev"></view>
+    </view>
+  </view>
+
+  <view class="logout" wx:if="{{user}}">
+    <view class="btn btn-plain" hover-class="tap" bindtap="logout">退出登录</view>
+  </view>
+
+  <text class="version">市第一人民医院 · 门诊预约 v1.0.0</text>
+</view>

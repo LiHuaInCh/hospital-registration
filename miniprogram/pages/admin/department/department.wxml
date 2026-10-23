@@ -1,0 +1,53 @@
+<admin-nav active="department" />
+
+<view class="admin-page">
+  <view class="admin-head">
+    <text class="admin-title">科室管理</text>
+    <view class="btn btn-primary btn-sm" hover-class="tap" bindtap="showAdd">新增科室</view>
+  </view>
+  <text class="admin-sub">共 {{departments.length}} 个科室，医生数量由系统统计</text>
+
+  <view class="panel" wx:if="{{departments.length}}">
+    <view class="admin-item" wx:for="{{departments}}" wx:key="id">
+      <view class="admin-item-main">
+        <view class="row-title">
+          {{item.name}}
+          <text class="tag">{{item.doctorCount}} 位医生</text>
+        </view>
+        <text class="row-sub">{{item.location || '未填写位置'}}　{{item.phone || ''}}</text>
+        <text class="row-sub">{{item.description || '暂无简介'}}</text>
+      </view>
+      <view class="admin-actions">
+        <text bindtap="showEdit" data-id="{{item.id}}">编辑</text>
+        <text class="danger" bindtap="remove" data-id="{{item.id}}">删除</text>
+      </view>
+    </view>
+  </view>
+
+  <empty-state wx:if="{{!loading && !departments.length}}" text="还没有科室" hint="点击右上角新增科室" />
+</view>
+
+<view class="mask" wx:if="{{showDialog}}" bindtap="close"></view>
+<view class="sheet" wx:if="{{showDialog}}">
+  <view class="sheet-head">
+    <text class="sheet-title">{{isEdit ? '编辑科室' : '新增科室'}}</text>
+    <text class="link" bindtap="close">关闭</text>
+  </view>
+  <scroll-view class="sheet-body" scroll-y>
+    <view class="form-block">
+      <text class="form-label">科室名称</text>
+      <input class="form-input" value="{{form.name}}" data-field="name" bindinput="onField" placeholder="如：呼吸内科" maxlength="100" />
+      <text class="form-label">科室位置</text>
+      <input class="form-input" value="{{form.location}}" data-field="location" bindinput="onField" placeholder="如：门诊楼 2 层 A 区" maxlength="200" />
+      <text class="form-label">联系电话</text>
+      <input class="form-input" value="{{form.phone}}" data-field="phone" bindinput="onField" placeholder="如：0571-88000101" maxlength="20" />
+      <text class="form-label">科室简介</text>
+      <textarea class="form-textarea" value="{{form.description}}" data-field="description" bindinput="onField" placeholder="一句话说明科室诊治范围" maxlength="200" />
+    </view>
+  </scroll-view>
+  <view class="sheet-foot">
+    <view class="btn btn-primary btn-block {{saving ? 'is-disabled' : ''}}" hover-class="tap" bindtap="save">
+      {{saving ? '保存中…' : '保存'}}
+    </view>
+  </view>
+</view>

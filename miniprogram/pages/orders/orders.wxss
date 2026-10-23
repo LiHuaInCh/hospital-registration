@@ -1,0 +1,81 @@
+.order {
+  padding: 28rpx;
+  border-bottom: 1rpx solid var(--line-soft);
+}
+
+.order:last-child {
+  border-bottom: 0;
+}
+
+.order-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.order-dept {
+  font-size: 24rpx;
+  letter-spacing: 1rpx;
+  color: var(--ink-3);
+}
+
+.order-doctor {
+  display: block;
+  margin-top: 8rpx;
+  font-size: 32rpx;
+  font-weight: 600;
+}
+
+.order-title {
+  margin-left: 14rpx;
+  font-size: 23rpx;
+  font-weight: 400;
+  color: var(--ink-3);
+}
+
+.order-line {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  margin-top: 14rpx;
+}
+
+.order-patient {
+  font-size: 25rpx;
+  color: var(--ink-2);
+}
+
+.order-time {
+  font-size: 25rpx;
+  color: var(--ink-2);
+}
+
+.order-foot {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 18rpx;
+  padding-top: 18rpx;
+  border-top: 1rpx solid var(--line-soft);
+}
+
+.order-fee {
+  font-size: 26rpx;
+  color: var(--accent);
+}
+
+.login-hint {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 32rpx;
+  padding: 26rpx 28rpx;
+  border: 1rpx solid var(--line);
+  border-radius: 12rpx;
+  background: #ffffff;
+}
+
+.login-hint-text {
+  font-size: 26rpx;
+  color: var(--ink-2);
+}

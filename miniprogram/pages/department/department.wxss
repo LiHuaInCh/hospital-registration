@@ -1,0 +1,16 @@
+.dept {
+  align-items: flex-start;
+}
+
+.dept-no {
+  flex: none;
+  width: 60rpx;
+  padding-top: 4rpx;
+  font-size: 22rpx;
+  letter-spacing: 1rpx;
+  color: var(--brand);
+}
+
+.dept .chev {
+  margin-top: 12rpx;
+}

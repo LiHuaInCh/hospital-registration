@@ -1,0 +1,40 @@
+.profile {
+  display: flex;
+  align-items: center;
+  padding: 44rpx 0 36rpx;
+  border-bottom: 1rpx solid var(--line);
+}
+
+.profile-main {
+  flex: 1;
+  min-width: 0;
+}
+
+.profile-name {
+  display: flex;
+  align-items: center;
+}
+
+.name {
+  margin-right: 12rpx;
+  font-size: 38rpx;
+  font-weight: 600;
+}
+
+.profile-dept {
+  display: block;
+  margin-top: 8rpx;
+  font-size: 25rpx;
+  color: var(--ink-2);
+}
+
+.profile-fee {
+  display: block;
+  margin-top: 6rpx;
+  font-size: 24rpx;
+  color: var(--accent);
+}
+
+.info {
+  margin-top: 16rpx;
+}

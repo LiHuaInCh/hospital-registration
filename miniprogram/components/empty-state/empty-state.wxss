@@ -1,0 +1,24 @@
+.empty {
+  padding: 120rpx 40rpx;
+  text-align: center;
+}
+
+.empty-line {
+  width: 48rpx;
+  height: 3rpx;
+  margin: 0 auto 28rpx;
+  background: #d5dbd8;
+}
+
+.empty-text {
+  display: block;
+  font-size: 27rpx;
+  color: #6b7673;
+}
+
+.empty-hint {
+  display: block;
+  margin-top: 12rpx;
+  font-size: 23rpx;
+  color: #9aa4a1;
+}

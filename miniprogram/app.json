@@ -1,0 +1,64 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/login/login",
+    "pages/department/department",
+    "pages/doctor/list",
+    "pages/doctor/detail",
+    "pages/schedule/schedule",
+    "pages/guidance/guidance",
+    "pages/booking/confirm",
+    "pages/booking/success",
+    "pages/orders/orders",
+    "pages/profile/profile",
+    "pages/patient/list/list",
+    "pages/patient/edit/edit",
+    "pages/admin/login/login",
+    "pages/admin/department/department",
+    "pages/admin/doctor/doctor",
+    "pages/admin/schedule/schedule",
+    "pages/admin/orders/orders"
+  ],
+  "window": {
+    "backgroundTextStyle": "dark",
+    "navigationBarBackgroundColor": "#FFFFFF",
+    "navigationBarTitleText": "门诊挂号",
+    "navigationBarTextStyle": "black",
+    "backgroundColor": "#F5F6F5"
+  },
+  "tabBar": {
+    "color": "#8A9492",
+    "selectedColor": "#0F6B5C",
+    "backgroundColor": "#FFFFFF",
+    "borderStyle": "white",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "首页",
+        "iconPath": "assets/icons/tab-home.png",
+        "selectedIconPath": "assets/icons/tab-home-on.png"
+      },
+      {
+        "pagePath": "pages/guidance/guidance",
+        "text": "导诊",
+        "iconPath": "assets/icons/tab-triage.png",
+        "selectedIconPath": "assets/icons/tab-triage-on.png"
+      },
+      {
+        "pagePath": "pages/orders/orders",
+        "text": "挂号单",
+        "iconPath": "assets/icons/tab-record.png",
+        "selectedIconPath": "assets/icons/tab-record-on.png"
+      },
+      {
+        "pagePath": "pages/profile/profile",
+        "text": "我的",
+        "iconPath": "assets/icons/tab-me.png",
+        "selectedIconPath": "assets/icons/tab-me-on.png"
+      }
+    ]
+  },
+  "lazyCodeLoading": "requiredComponents",
+  "style": "v2",
+  "sitemapLocation": "sitemap.json"
+}

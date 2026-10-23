@@ -1,0 +1,62 @@
+<view class="page" wx:if="{{doctor}}">
+  <view class="doctor-strip">
+    <view class="avatar">{{initial}}</view>
+    <view class="strip-main">
+      <view class="strip-line">
+        <text class="strip-name">{{doctor.name}}</text>
+        <text class="tag tag-brand" wx:if="{{doctor.title}}">{{doctor.title}}</text>
+      </view>
+      <text class="strip-sub">{{doctor.departmentName}} · 挂号费 ¥{{fee}}</text>
+    </view>
+  </view>
+
+  <scroll-view class="dates" scroll-x show-scrollbar="{{false}}">
+    <view
+      class="date {{selectedDate === item.date ? 'on' : ''}}"
+      wx:for="{{dates}}"
+      wx:key="date"
+      data-date="{{item.date}}"
+      bindtap="selectDate"
+    >
+      <text class="date-week">{{item.weekday}}</text>
+      <text class="date-day">{{item.day}}</text>
+    </view>
+  </scroll-view>
+
+  <view class="sec-first">
+    <view class="sec-head">
+      <text class="sec-title">可预约时段</text>
+      <text class="sec-more">{{slots.length}} 个时段</text>
+    </view>
+
+    <view class="panel" wx:if="{{slots.length}}">
+      <view
+        class="slot {{item.full ? 'off' : ''}}"
+        wx:for="{{slots}}"
+        wx:key="id"
+        hover-class="tap"
+        data-id="{{item.id}}"
+        bindtap="goConfirm"
+      >
+        <view class="slot-main">
+          <text class="slot-name">{{item.timeSlot}}</text>
+          <text class="slot-range">{{item.range}}</text>
+        </view>
+        <view class="slot-right">
+          <text class="slot-remain" wx:if="{{!item.full}}">余 {{item.remainCount}}</text>
+          <text class="slot-full" wx:else>已约满</text>
+          <view class="chev" wx:if="{{!item.full}}"></view>
+        </view>
+      </view>
+    </view>
+
+    <empty-state
+      wx:if="{{!loading && slots.length === 0}}"
+      text="当天暂无可约号源"
+      hint="可以切换到其他日期看看"
+    />
+  </view>
+
+  <text class="note">号源实时更新，提交预约时会再次校验余量；请按预约时段到院就诊。</text>
+  <view class="footer-space"></view>
+</view>

@@ -1,0 +1,25 @@
+# 构建产物
+backend/target/
+*.class
+*.jar
+!backend/target/.keep
+
+# Python 缓存与临时脚本产物
+__pycache__/
+*.pyc
+backend/__pycache__/
+*.docx
+
+# 编辑器与系统文件
+.idea/
+.vscode/
+.DS_Store
+Thumbs.db
+
+# 小程序开发者工具的本机配置
+project.private.config.json
+miniprogram/project.private.config.json
+
+# 日志
+*.log
+logs/

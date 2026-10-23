@@ -1,0 +1,4 @@
+.row .link-danger {
+  flex: none;
+  margin-left: 20rpx;
+}

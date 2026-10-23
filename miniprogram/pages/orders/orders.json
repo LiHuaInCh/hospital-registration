@@ -1,0 +1,7 @@
+{
+  "navigationBarTitleText": "挂号单",
+  "enablePullDownRefresh": true,
+  "usingComponents": {
+    "empty-state": "../../components/empty-state/empty-state"
+  }
+}

@@ -1,0 +1,46 @@
+<view class="page">
+  <view class="seg">
+    <view
+      class="seg-item {{currentTab === index ? 'on' : ''}}"
+      wx:for="{{tabs}}"
+      wx:key="label"
+      data-index="{{index}}"
+      bindtap="switchTab"
+    >{{item.label}}</view>
+  </view>
+
+  <view class="login-hint" wx:if="{{!loggedIn}}">
+    <text class="login-hint-text">登录后可查看与取消挂号</text>
+    <view class="btn btn-primary btn-sm" hover-class="tap" bindtap="goLogin">立即登录</view>
+  </view>
+
+  <block wx:elif="{{orders.length}}">
+    <view class="panel">
+      <view class="order" wx:for="{{orders}}" wx:key="id">
+        <view class="order-head">
+          <text class="order-dept">{{item.departmentName}}</text>
+          <text class="status status-{{item.status}}">{{item.statusText}}</text>
+        </view>
+        <text class="order-doctor">{{item.doctorName}}<text class="order-title" wx:if="{{item.title}}">{{item.title}}</text></text>
+        <view class="order-line">
+          <text class="order-patient">{{item.patientName}}</text>
+          <text class="order-time">{{item.dateText}}　{{item.timeText}}</text>
+        </view>
+        <view class="order-foot">
+          <text class="order-fee">¥{{item.fee}}</text>
+          <text class="link-danger" wx:if="{{item.canCancel}}" catchtap="cancel" data-id="{{item.id}}">取消预约</text>
+        </view>
+      </view>
+    </view>
+    <view class="load-more" wx:if="{{loadingMore}}">加载中…</view>
+    <view class="load-more" wx:elif="{{hasMore}}">上拉加载更多</view>
+  </block>
+
+  <empty-state
+    wx:elif="{{!loading}}"
+    text="还没有挂号记录"
+    hint="从首页选择科室，挑选医生与时段即可预约"
+  />
+
+  <view class="load-more" wx:if="{{loading}}">加载中…</view>
+</view>

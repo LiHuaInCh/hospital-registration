@@ -1,0 +1,33 @@
+.gender {
+  flex: 1;
+  display: flex;
+}
+
+.gender-item {
+  width: 120rpx;
+  height: 60rpx;
+  margin-right: 16rpx;
+  line-height: 60rpx;
+  text-align: center;
+  font-size: 26rpx;
+  color: var(--ink-2);
+  border: 1rpx solid var(--line);
+  border-radius: 8rpx;
+}
+
+.gender-item.on {
+  border-color: var(--brand);
+  background: var(--brand-soft);
+  color: var(--brand-deep);
+}
+
+.switch-label {
+  width: auto;
+  flex: 1;
+}
+
+.switch-hint {
+  display: block;
+  font-size: 22rpx;
+  color: var(--ink-3);
+}

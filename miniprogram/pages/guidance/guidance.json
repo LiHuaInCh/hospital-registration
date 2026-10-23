@@ -1,0 +1,6 @@
+{
+  "navigationBarTitleText": "智能导诊",
+  "usingComponents": {
+    "empty-state": "../../components/empty-state/empty-state"
+  }
+}

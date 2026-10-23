@@ -1,0 +1,87 @@
+<view class="page page-with-bar" wx:if="{{doctor}}">
+  <view class="sec-first">
+    <view class="sec-head">
+      <text class="sec-title">就诊人</text>
+      <text class="sec-more" bindtap="addPatient">新增就诊人</text>
+    </view>
+    <view class="panel" hover-class="tap" bindtap="openPicker">
+      <view class="row">
+        <view class="row-main">
+          <view class="row-title" wx:if="{{selectedPatient}}">
+            {{selectedPatient.name}}
+            <text class="tag tag-brand">{{selectedPatient.relationship}}</text>
+          </view>
+          <view class="row-title" wx:else>请选择就诊人</view>
+          <text class="row-sub" wx:if="{{selectedPatient}}">{{selectedPatient.genderText}} · {{selectedPatient.idCardMasked}}</text>
+          <text class="row-sub" wx:else>挂号信息将关联到所选就诊人</text>
+        </view>
+        <view class="chev"></view>
+      </view>
+    </view>
+  </view>
+
+  <view class="sec">
+    <text class="sec-title">预约信息</text>
+    <view class="panel info">
+      <view class="kv">
+        <text class="k">科室</text>
+        <text class="v">{{doctor.departmentName}}</text>
+      </view>
+      <view class="kv">
+        <text class="k">医生</text>
+        <text class="v">{{doctor.name}}{{doctor.title ? '　' + doctor.title : ''}}</text>
+      </view>
+      <view class="kv">
+        <text class="k">就诊时间</text>
+        <text class="v">{{dateText}}　{{timeText}}</text>
+      </view>
+      <view class="kv">
+        <text class="k">挂号费</text>
+        <text class="v accent">¥{{fee}}</text>
+      </view>
+    </view>
+  </view>
+
+  <text class="note">请确认就诊人信息与医院就诊卡一致。到院后凭就诊人身份证或就诊卡取号。</text>
+
+  <view class="bottom-bar">
+    <view class="btn btn-primary btn-block {{submitting ? 'is-disabled' : ''}}" hover-class="tap" bindtap="submit">
+      {{submitting ? '提交中…' : '确认挂号'}}
+    </view>
+  </view>
+
+  <view class="mask" wx:if="{{showPicker}}" bindtap="closePicker"></view>
+  <view class="sheet" wx:if="{{showPicker}}">
+    <view class="sheet-head">
+      <text class="sheet-title">选择就诊人</text>
+      <text class="link" bindtap="closePicker">关闭</text>
+    </view>
+    <view class="sheet-body">
+      <view
+        class="row"
+        wx:for="{{patients}}"
+        wx:key="id"
+        hover-class="tap"
+        data-id="{{item.id}}"
+        bindtap="choosePatient"
+      >
+        <view class="row-main">
+          <view class="row-title">
+            {{item.name}}
+            <text class="tag">{{item.relationship}}</text>
+            <text class="tag tag-brand" wx:if="{{item.isDefault}}">默认</text>
+          </view>
+          <text class="row-sub">{{item.idCardMasked}}</text>
+        </view>
+        <text class="chosen" wx:if="{{selectedPatient && selectedPatient.id === item.id}}">已选</text>
+      </view>
+      <view class="row" hover-class="tap" bindtap="addPatient">
+        <view class="row-main">
+          <text class="row-title">新增就诊人</text>
+          <text class="row-sub">为家人添加就诊人信息</text>
+        </view>
+        <view class="chev"></view>
+      </view>
+    </view>
+  </view>
+</view>

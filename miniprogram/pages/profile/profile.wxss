@@ -1,0 +1,45 @@
+.user {
+  display: flex;
+  align-items: center;
+  padding: 48rpx 0 40rpx;
+  border-bottom: 1rpx solid var(--line);
+  margin-bottom: 32rpx;
+}
+
+.user-main {
+  flex: 1;
+  min-width: 0;
+}
+
+.user-name {
+  display: block;
+  font-size: 36rpx;
+  font-weight: 600;
+}
+
+.user-sub {
+  display: block;
+  margin-top: 6rpx;
+  font-size: 24rpx;
+  color: var(--ink-3);
+}
+
+.second {
+  margin-top: 24rpx;
+}
+
+.logout {
+  margin-top: 48rpx;
+  border: 1rpx solid var(--line);
+  border-radius: 10rpx;
+  background: #ffffff;
+}
+
+.version {
+  display: block;
+  margin-top: 56rpx;
+  text-align: center;
+  font-size: 22rpx;
+  letter-spacing: 1rpx;
+  color: var(--ink-3);
+}

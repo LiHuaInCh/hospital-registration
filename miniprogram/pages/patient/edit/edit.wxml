@@ -1,0 +1,100 @@
+<view class="page page-with-bar">
+  <view class="masthead">
+    <text class="masthead-title">{{isEdit ? '编辑就诊人' : '新增就诊人'}}</text>
+    <text class="masthead-desc">请填写与就诊卡一致的真实信息</text>
+  </view>
+
+  <view class="panel">
+    <view class="field">
+      <text class="field-label">姓名</text>
+      <input
+        class="field-input"
+        value="{{form.name}}"
+        data-field="name"
+        placeholder="就诊人真实姓名"
+        placeholder-class="placeholder"
+        maxlength="30"
+        bindinput="onInput"
+      />
+    </view>
+
+    <view class="field">
+      <text class="field-label">身份证号</text>
+      <input
+        class="field-input"
+        value="{{form.idCard}}"
+        data-field="idCard"
+        type="idcard"
+        placeholder="18 位身份证号"
+        placeholder-class="placeholder"
+        maxlength="18"
+        bindinput="onInput"
+      />
+    </view>
+
+    <view class="field">
+      <text class="field-label">手机号</text>
+      <input
+        class="field-input"
+        value="{{form.phone}}"
+        data-field="phone"
+        type="number"
+        placeholder="用于接诊通知"
+        placeholder-class="placeholder"
+        maxlength="11"
+        bindinput="onInput"
+      />
+    </view>
+
+    <view class="field">
+      <text class="field-label">性别</text>
+      <view class="gender">
+        <view class="gender-item {{form.gender === 1 ? 'on' : ''}}" data-gender="1" bindtap="setGender">男</view>
+        <view class="gender-item {{form.gender === 2 ? 'on' : ''}}" data-gender="2" bindtap="setGender">女</view>
+      </view>
+    </view>
+
+    <view class="field">
+      <text class="field-label">年龄</text>
+      <input
+        class="field-input"
+        value="{{form.age}}"
+        data-field="age"
+        type="number"
+        placeholder="选填"
+        placeholder-class="placeholder"
+        maxlength="3"
+        bindinput="onInput"
+      />
+    </view>
+
+    <picker
+      mode="selector"
+      range="{{relationships}}"
+      value="{{relationshipIndex}}"
+      bindchange="onRelationship"
+    >
+      <view class="field">
+        <text class="field-label">与本人关系</text>
+        <text class="field-value">{{form.relationship}}</text>
+        <view class="chev"></view>
+      </view>
+    </picker>
+
+    <view class="field">
+      <view class="switch-label">
+        <text class="row-title">设为默认就诊人</text>
+        <text class="row-sub">挂号时默认选中该就诊人</text>
+      </view>
+      <switch checked="{{form.isDefault}}" color="#0F6B5C" bindchange="onDefault" />
+    </view>
+  </view>
+
+  <text class="note">身份证号仅用于医院核验就诊人身份，列表与订单中仅展示脱敏后的号码。</text>
+
+  <view class="bottom-bar">
+    <view class="btn btn-primary btn-block {{submitting ? 'is-disabled' : ''}}" hover-class="tap" bindtap="submit">
+      {{submitting ? '保存中…' : '保存'}}
+    </view>
+  </view>
+</view>

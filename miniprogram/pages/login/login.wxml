@@ -1,0 +1,26 @@
+<view class="page login">
+  <view class="brand">
+    <view class="brand-mark">
+      <view class="brand-bar brand-bar-v"></view>
+      <view class="brand-bar brand-bar-h"></view>
+    </view>
+    <text class="brand-name">市第一人民医院</text>
+    <text class="brand-sub">互联网门诊 · 预约挂号</text>
+  </view>
+
+  <view class="login-body">
+    <text class="login-title">登录后开始预约</text>
+    <text class="login-desc">使用微信登录，用于保存就诊人信息与挂号记录。</text>
+
+    <view class="btn btn-primary login-btn {{loading ? 'is-disabled' : ''}}" hover-class="tap" bindtap="handleLogin">
+      {{loading ? '登录中…' : '微信一键登录'}}
+    </view>
+
+    <text class="login-note">登录即表示同意《用户服务协议》与《隐私政策》，我们仅收集就诊所需信息。</text>
+  </view>
+
+  <view class="login-foot">
+    <text class="foot-line">门诊时间 08:00 - 21:00</text>
+    <text class="foot-line">急诊 24 小时开放</text>
+  </view>
+</view>

@@ -1,0 +1,7 @@
+{
+  "navigationBarTitleText": "科室管理",
+  "usingComponents": {
+    "admin-nav": "../../../components/admin-nav/admin-nav",
+    "empty-state": "../../../components/empty-state/empty-state"
+  }
+}

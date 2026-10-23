@@ -1,0 +1,68 @@
+<view class="page">
+  <view class="hero">
+    <text class="kicker">市第一人民医院 · 门诊部</text>
+    <text class="hero-title">预约挂号</text>
+    <text class="hero-desc">在线选择科室与医生，按预约时段就诊，减少排队等候。</text>
+
+    <view class="search-entry" hover-class="tap" bindtap="goSearch">
+      <image class="search-icon" src="/assets/icons/ic-search.png" mode="aspectFit" />
+      <text class="search-hint">搜索医生、科室或擅长方向</text>
+    </view>
+  </view>
+
+  <view class="entries">
+    <view class="entry entry-brand" hover-class="tap" bindtap="goTriage">
+      <text class="entry-title">智能导诊</text>
+      <text class="entry-desc">描述症状，推荐科室</text>
+      <view class="entry-arrow"></view>
+    </view>
+    <view class="entry" hover-class="tap" bindtap="goOrders">
+      <text class="entry-title">我的挂号</text>
+      <text class="entry-desc">查看预约与取消</text>
+      <view class="entry-arrow"></view>
+    </view>
+  </view>
+
+  <view class="sec">
+    <view class="sec-head">
+      <text class="sec-title">选择科室</text>
+      <text class="sec-more" bindtap="goDepartments">全部 {{total}} 个 ›</text>
+    </view>
+
+    <view class="grid">
+      <view
+        class="grid-item"
+        wx:for="{{departments}}"
+        wx:key="id"
+        hover-class="tap"
+        data-id="{{item.id}}"
+        data-name="{{item.name}}"
+        bindtap="goDepartment"
+      >
+        <text class="grid-no">{{item.no}}</text>
+        <text class="grid-name">{{item.name}}</text>
+        <text class="grid-sub">{{item.doctorCount}} 位医生</text>
+      </view>
+    </view>
+  </view>
+
+  <view class="sec">
+    <text class="sec-title">就诊须知</text>
+    <view class="notice-list">
+      <view class="notice-item">
+        <text class="notice-no">01</text>
+        <text class="notice-text">预约成功后，请于就诊当天提前 15 分钟到院取号。</text>
+      </view>
+      <view class="notice-item">
+        <text class="notice-no">02</text>
+        <text class="notice-text">就诊前 2 小时内不可取消预约，请合理安排时间。</text>
+      </view>
+      <view class="notice-item">
+        <text class="notice-no">03</text>
+        <text class="notice-text">就诊时请携带就诊人本人身份证，以便核对信息。</text>
+      </view>
+    </view>
+  </view>
+
+  <view class="footer-space"></view>
+</view>

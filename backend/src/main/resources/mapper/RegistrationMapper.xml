@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.hospital.mapper.RegistrationMapper">
+
+    <sql id="voColumns">
+        r.id, r.patient_id, r.schedule_id, r.department_id, r.doctor_id,
+        r.work_date, r.time_slot, r.fee, r.status, r.cancel_reason, r.create_time,
+        p.name AS patient_name,
+        d.name AS doctor_name, d.title,
+        dept.name AS department_name,
+        s.start_time, s.end_time
+    </sql>
+
+    <select id="selectPageVo" resultType="com.hospital.vo.RegistrationVO">
+        SELECT
+        <include refid="voColumns"/>
+        FROM registration r
+        LEFT JOIN patient p ON p.id = r.patient_id
+        LEFT JOIN doctor d ON d.id = r.doctor_id
+        LEFT JOIN department dept ON dept.id = r.department_id
+        LEFT JOIN schedule s ON s.id = r.schedule_id
+        <where>
+            <if test="userId != null">
+                AND r.user_id = #{userId}
+            </if>
+            <if test="statuses != null and statuses.size() > 0">
+                AND r.status IN
+                <foreach collection="statuses" item="status" open="(" separator="," close=")">
+                    #{status}
+                </foreach>
+            </if>
+            <if test="date != null">
+                AND r.work_date = #{date}
+            </if>
+            <if test="keyword != null and keyword != ''">
+                AND (p.name LIKE CONCAT('%', #{keyword}, '%') OR d.name LIKE CONCAT('%', #{keyword}, '%'))
+            </if>
+        </where>
+        ORDER BY r.work_date DESC, r.id DESC
+    </select>
+
+    <select id="selectDetail" resultType="com.hospital.vo.RegistrationVO">
+        SELECT
+        <include refid="voColumns"/>
+        FROM registration r
+        LEFT JOIN patient p ON p.id = r.patient_id
+        LEFT JOIN doctor d ON d.id = r.doctor_id
+        LEFT JOIN department dept ON dept.id = r.department_id
+        LEFT JOIN schedule s ON s.id = r.schedule_id
+        WHERE r.id = #{id}
+    </select>
+
+</mapper>

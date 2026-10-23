@@ -1,0 +1,39 @@
+<view class="page admin-login">
+  <view class="login-brand">
+    <text class="login-kicker">HOSPITAL ADMIN</text>
+    <text class="login-title">管理后台</text>
+    <text class="login-desc">供门诊部维护科室、医生与排班使用</text>
+  </view>
+
+  <view class="panel">
+    <view class="field">
+      <text class="field-label">账号</text>
+      <input
+        class="field-input"
+        value="{{username}}"
+        placeholder="管理员账号"
+        placeholder-class="placeholder"
+        bindinput="onUsername"
+      />
+    </view>
+    <view class="field">
+      <text class="field-label">密码</text>
+      <input
+        class="field-input"
+        password
+        value="{{password}}"
+        placeholder="登录密码"
+        placeholder-class="placeholder"
+        bindinput="onPassword"
+        confirm-type="done"
+        bindconfirm="submit"
+      />
+    </view>
+  </view>
+
+  <view class="btn btn-primary login-submit {{loading ? 'is-disabled' : ''}}" hover-class="tap" bindtap="submit">
+    {{loading ? '登录中…' : '登录'}}
+  </view>
+
+  <text class="login-note">默认账号 admin / 123456，登录状态保留 72 小时。</text>
+</view>

@@ -1,0 +1,6 @@
+@import "../../../styles/admin.wxss";
+
+.admin-count {
+  font-size: 24rpx;
+  color: var(--ink-3);
+}

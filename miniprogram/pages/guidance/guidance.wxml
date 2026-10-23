@@ -1,0 +1,87 @@
+<view class="page">
+  <view class="masthead">
+    <text class="masthead-title">描述症状，推荐科室</text>
+    <text class="masthead-desc">根据关键词匹配门诊科室，结果仅供分诊参考。</text>
+  </view>
+
+  <view class="panel input-panel">
+    <textarea
+      class="symptom"
+      value="{{symptoms}}"
+      placeholder="例如：咳嗽三天，伴有低烧和咽痛"
+      placeholder-class="placeholder"
+      maxlength="300"
+      auto-height
+      bindinput="onInput"
+    />
+    <view class="input-foot">
+      <text class="counter">{{symptoms.length}}/300</text>
+      <view class="btn btn-primary btn-sm" hover-class="tap" bindtap="doTriage">
+        {{searching ? '分析中' : '开始分析'}}
+      </view>
+    </view>
+  </view>
+
+  <view class="sec">
+    <text class="sec-title">常见描述</text>
+    <view class="chips">
+      <view
+        class="chip"
+        wx:for="{{commonSymptoms}}"
+        wx:key="*this"
+        data-text="{{item}}"
+        bindtap="useSymptom"
+      >{{item}}</view>
+    </view>
+  </view>
+
+  <block wx:if="{{searched}}">
+    <view class="alert" wx:if="{{emergency}}">
+      <text class="alert-title">建议立即就医</text>
+      <text class="alert-text">{{advice}}</text>
+    </view>
+
+    <view class="sec" wx:if="{{results.length}}">
+      <view class="sec-head">
+        <text class="sec-title">推荐科室</text>
+        <text class="sec-more">按匹配度排序</text>
+      </view>
+
+      <view class="panel">
+        <view
+          class="triage"
+          wx:for="{{results}}"
+          wx:key="departmentId"
+          hover-class="tap"
+          data-id="{{item.departmentId}}"
+          data-name="{{item.departmentName}}"
+          bindtap="goDoctors"
+        >
+          <view class="triage-head">
+            <text class="triage-name">{{item.departmentName}}</text>
+            <text class="triage-conf">{{item.confidence}}% 匹配</text>
+          </view>
+          <view class="bar">
+            <view class="bar-fill" style="width: {{item.confidence}}%"></view>
+          </view>
+          <text class="triage-desc">{{item.description || '暂无科室简介'}}</text>
+          <view class="triage-foot">
+            <view class="keywords">
+              <text class="tag" wx:for="{{item.matchedKeywords}}" wx:for-item="keyword" wx:key="*this">{{keyword}}</text>
+            </view>
+            <text class="triage-location">{{item.location || ''}}</text>
+          </view>
+        </view>
+      </view>
+    </view>
+
+    <empty-state
+      wx:if="{{!results.length}}"
+      text="暂时无法识别这些症状"
+      hint="可以换个说法，或到门诊导诊台咨询"
+    />
+  </block>
+
+  <text class="note">导诊结果基于关键词匹配，不能替代医生诊断。若出现胸痛、呼吸困难、意识模糊等情况，请立即前往急诊科或拨打 120。</text>
+  <view class="footer-space"></view>
+</view>

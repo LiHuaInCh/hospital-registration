@@ -1,0 +1,9 @@
+<view class="admin-nav">
+  <view
+    class="nav-item {{active === item.key ? 'on' : ''}}"
+    wx:for="{{items}}"
+    wx:key="key"
+    data-key="{{item.key}}"
+    bindtap="go"
+  >{{item.label}}</view>
+</view>

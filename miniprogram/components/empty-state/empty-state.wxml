@@ -1,0 +1,5 @@
+<view class="empty">
+  <view class="empty-line"></view>
+  <text class="empty-text">{{text}}</text>
+  <text class="empty-hint" wx:if="{{hint}}">{{hint}}</text>
+</view>

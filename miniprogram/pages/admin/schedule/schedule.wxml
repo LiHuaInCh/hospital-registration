@@ -1,0 +1,87 @@
+<admin-nav active="schedule" />
+
+<view class="admin-page">
+  <view class="admin-head">
+    <text class="admin-title">排班管理</text>
+    <view class="btn btn-primary btn-sm" hover-class="tap" bindtap="showAdd">新增排班</view>
+  </view>
+  <text class="admin-sub">按日期查看各科室出诊安排与号源余量</text>
+
+  <scroll-view class="seg-date" scroll-x show-scrollbar="{{false}}">
+    <view
+      class="day {{selectedDate === item.date ? 'on' : ''}}"
+      wx:for="{{dates}}"
+      wx:key="date"
+      data-date="{{item.date}}"
+      bindtap="selectDate"
+    >{{item.label}}</view>
+  </scroll-view>
+
+  <view class="panel" wx:if="{{schedules.length}}">
+    <view class="admin-item" wx:for="{{schedules}}" wx:key="id">
+      <view class="admin-item-main">
+        <view class="row-title">
+          {{item.doctorName}}
+          <text class="tag">{{item.departmentName}}</text>
+        </view>
+        <text class="row-sub">{{item.timeSlot}}　{{item.range}}</text>
+        <text class="row-sub">
+          余 {{item.remainCount}} / {{item.totalCount}}
+          <text class="tag" wx:if="{{item.status === 2}}">停诊</text>
+        </text>
+      </view>
+      <view class="admin-actions">
+        <text class="danger" bindtap="remove" data-id="{{item.id}}">删除</text>
+      </view>
+    </view>
+  </view>
+
+  <empty-state
+    wx:if="{{!loading && !schedules.length}}"
+    text="这一天还没有排班"
+    hint="点击右上角新增排班"
+  />
+</view>
+
+<view class="mask" wx:if="{{showDialog}}" bindtap="close"></view>
+<view class="sheet" wx:if="{{showDialog}}">
+  <view class="sheet-head">
+    <text class="sheet-title">新增排班</text>
+    <text class="link" bindtap="close">关闭</text>
+  </view>
+  <scroll-view class="sheet-body" scroll-y>
+    <view class="form-block">
+      <text class="form-label">医生</text>
+      <picker range="{{doctors}}" range-key="name" value="{{doctorIndex}}" bindchange="onDoctorChange">
+        <view class="form-pick">
+          <text>{{doctors[doctorIndex].name || '选择医生'}}{{doctors[doctorIndex].departmentName ? ' · ' + doctors[doctorIndex].departmentName : ''}}</text>
+          <view class="chev"></view>
+        </view>
+      </picker>
+
+      <text class="form-label">出诊日期</text>
+      <picker mode="date" value="{{form.workDate}}" start="{{today}}" bindchange="onDateChange">
+        <view class="form-pick">
+          <text>{{form.workDate || '选择日期'}}</text>
+          <view class="chev"></view>
+        </view>
+      </picker>
+
+      <text class="form-label">时段</text>
+      <picker range="{{slots}}" value="{{slotIndex}}" bindchange="onSlotChange">
+        <view class="form-pick">
+          <text>{{slots[slotIndex]}}</text>
+          <view class="chev"></view>
+        </view>
+      </picker>
+
+      <text class="form-label">号源数量</text>
+      <input class="form-input" type="number" value="{{form.totalCount}}" data-field="totalCount" bindinput="onField" placeholder="默认 30" />
+    </view>
+  </scroll-view>
+  <view class="sheet-foot">
+    <view class="btn btn-primary btn-block {{saving ? 'is-disabled' : ''}}" hover-class="tap" bindtap="save">
+      {{saving ? '保存中…' : '保存'}}
+    </view>
+  </view>
+</view>

@@ -1,0 +1,54 @@
+<view class="page">
+  <view class="search">
+    <image class="search-icon" src="/assets/icons/ic-search.png" mode="aspectFit" />
+    <input
+      class="search-input"
+      value="{{keyword}}"
+      placeholder="搜索医生、科室或擅长方向"
+      placeholder-class="search-placeholder"
+      confirm-type="search"
+      bindinput="onKeyword"
+      bindconfirm="onSearch"
+    />
+    <text class="search-clear" wx:if="{{keyword}}" bindtap="clearKeyword">清空</text>
+    <text class="search-action" bindtap="onSearch">搜索</text>
+  </view>
+
+  <view class="filter-line">
+    <text class="filter-name">{{departmentName || '全部医生'}}</text>
+    <text class="filter-count">{{doctors.length}} 位</text>
+  </view>
+
+  <view class="panel" wx:if="{{doctors.length}}">
+    <view
+      class="doctor"
+      wx:for="{{doctors}}"
+      wx:key="id"
+      hover-class="tap"
+      data-id="{{item.id}}"
+      bindtap="goDetail"
+    >
+      <view class="avatar">{{item.initial}}</view>
+      <view class="doctor-main">
+        <view class="doctor-line">
+          <text class="doctor-name">{{item.name}}</text>
+          <text class="tag tag-brand" wx:if="{{item.title}}">{{item.title}}</text>
+        </view>
+        <text class="doctor-dept">{{item.departmentName}}</text>
+        <text class="doctor-skill">擅长：{{item.specialty || '暂无信息'}}</text>
+      </view>
+      <view class="doctor-fee">
+        <text class="fee">¥{{item.fee}}</text>
+        <text class="fee-label">挂号费</text>
+      </view>
+    </view>
+  </view>
+
+  <empty-state
+    wx:if="{{!loading && doctors.length === 0}}"
+    text="没有找到匹配的医生"
+    hint="试试更换关键词，或从科室列表中查找"
+  />
+
+  <view class="footer-space"></view>
+</view>

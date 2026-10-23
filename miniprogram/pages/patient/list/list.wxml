@@ -1,0 +1,38 @@
+<view class="page page-with-bar">
+  <view class="masthead">
+    <text class="masthead-title">就诊人</text>
+    <text class="masthead-desc">挂号时选择的就诊人，可为自己或家人添加</text>
+  </view>
+
+  <view class="panel" wx:if="{{patients.length}}">
+    <view
+      class="row"
+      wx:for="{{patients}}"
+      wx:key="id"
+      hover-class="tap"
+      data-id="{{item.id}}"
+      bindtap="goEdit"
+    >
+      <view class="row-main">
+        <view class="row-title">
+          {{item.name}}
+          <text class="tag">{{item.relationship}}</text>
+          <text class="tag tag-brand" wx:if="{{item.isDefault}}">默认</text>
+        </view>
+        <text class="row-sub">{{item.genderText}} · {{item.idCardMasked}}</text>
+        <text class="row-sub">{{item.phone}}</text>
+      </view>
+      <text class="link-danger" catchtap="remove" data-id="{{item.id}}">删除</text>
+    </view>
+  </view>
+
+  <empty-state
+    wx:if="{{!loading && patients.length === 0}}"
+    text="还没有添加就诊人"
+    hint="添加本人或家人的就诊信息后即可预约"
+  />
+
+  <view class="bottom-bar">
+    <view class="btn btn-primary btn-block" hover-class="tap" bindtap="add">新增就诊人</view>
+  </view>
+</view>

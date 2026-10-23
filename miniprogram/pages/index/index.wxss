@@ -1,0 +1,143 @@
+.search-entry {
+  display: flex;
+  align-items: center;
+  height: 84rpx;
+  margin-top: 32rpx;
+  padding: 0 24rpx;
+  border: 1rpx solid var(--line);
+  border-radius: 10rpx;
+  background: #ffffff;
+}
+
+.search-icon {
+  width: 34rpx;
+  height: 34rpx;
+  margin-right: 16rpx;
+}
+
+.search-hint {
+  font-size: 27rpx;
+  color: var(--ink-3);
+}
+
+.entries {
+  display: flex;
+  margin-top: 28rpx;
+}
+
+.entry {
+  position: relative;
+  flex: 1;
+  padding: 26rpx 26rpx 30rpx;
+  border: 1rpx solid var(--line);
+  border-radius: 12rpx;
+  background: #ffffff;
+}
+
+.entry + .entry {
+  margin-left: 20rpx;
+}
+
+.entry-brand {
+  border-color: var(--brand-soft);
+  background: var(--brand-soft);
+}
+
+.entry-title {
+  display: block;
+  font-size: 30rpx;
+  font-weight: 600;
+  color: var(--ink);
+}
+
+.entry-brand .entry-title {
+  color: var(--brand-deep);
+}
+
+.entry-desc {
+  display: block;
+  margin-top: 6rpx;
+  font-size: 23rpx;
+  color: var(--ink-3);
+}
+
+.entry-arrow {
+  position: absolute;
+  right: 26rpx;
+  bottom: 32rpx;
+  width: 16rpx;
+  height: 16rpx;
+  border-top: 2rpx solid var(--ink-3);
+  border-right: 2rpx solid var(--ink-3);
+  transform: rotate(45deg);
+}
+
+.grid {
+  display: flex;
+  flex-wrap: wrap;
+  border: 1rpx solid var(--line);
+  border-radius: 12rpx;
+  overflow: hidden;
+  background: #ffffff;
+}
+
+.grid-item {
+  width: 50%;
+  padding: 26rpx 26rpx 24rpx;
+  border-bottom: 1rpx solid var(--line-soft);
+}
+
+.grid-item:nth-child(odd) {
+  border-right: 1rpx solid var(--line-soft);
+}
+
+.grid-item:nth-last-child(-n + 2) {
+  border-bottom: 0;
+}
+
+.grid-no {
+  display: block;
+  font-size: 20rpx;
+  letter-spacing: 1rpx;
+  color: var(--ink-3);
+}
+
+.grid-name {
+  display: block;
+  margin-top: 8rpx;
+  font-size: 29rpx;
+  font-weight: 500;
+}
+
+.grid-sub {
+  display: block;
+  margin-top: 4rpx;
+  font-size: 22rpx;
+  color: var(--ink-3);
+}
+
+.notice-list {
+  margin-top: 6rpx;
+}
+
+.notice-item {
+  display: flex;
+  align-items: flex-start;
+  padding: 22rpx 0;
+  border-top: 1rpx solid var(--line-soft);
+}
+
+.notice-no {
+  flex: none;
+  width: 64rpx;
+  font-size: 22rpx;
+  letter-spacing: 1rpx;
+  color: var(--brand);
+}
+
+.notice-text {
+  flex: 1;
+  font-size: 25rpx;
+  line-height: 1.65;
+  color: var(--ink-2);
+}

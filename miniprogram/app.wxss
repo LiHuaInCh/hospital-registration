@@ -1,0 +1,548 @@
+/**
+ * 全局样式：颜色、排版与复用的组件类。
+ * 设计取向是「医院手册」式的克制排版：白底、细线、单一主色，
+ * 不使用渐变色块和大圆角卡片堆叠。
+ */
+
+page {
+  --ink: #1b2321;
+  --ink-2: #5b6764;
+  --ink-3: #8f9a97;
+  --line: #e4e8e6;
+  --line-soft: #eff2f1;
+  --paper: #f5f6f5;
+  --card: #ffffff;
+  --brand: #0f6b5c;
+  --brand-deep: #0a4f44;
+  --brand-soft: #eaf1ef;
+  --accent: #a2573a;
+  --accent-soft: #f7efe9;
+  --danger: #9c342a;
+  --danger-soft: #f8eeec;
+
+  background: var(--paper);
+  color: var(--ink);
+  font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Helvetica Neue", "Microsoft YaHei", sans-serif;
+  font-size: 28rpx;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+view, text, input, textarea, scroll-view, picker {
+  box-sizing: border-box;
+}
+
+.page {
+  padding: 0 32rpx;
+  min-height: 100vh;
+}
+
+.page-with-bar {
+  padding-bottom: 160rpx;
+  padding-bottom: calc(160rpx + env(safe-area-inset-bottom));
+}
+
+/* ---------- 页面头部 ---------- */
+
+.hero {
+  padding: 44rpx 0 24rpx;
+}
+
+.kicker {
+  display: block;
+  font-size: 22rpx;
+  letter-spacing: 3rpx;
+  color: var(--ink-3);
+}
+
+.hero-title {
+  display: block;
+  margin-top: 14rpx;
+  font-size: 46rpx;
+  line-height: 1.25;
+  font-weight: 600;
+  letter-spacing: 1rpx;
+}
+
+.hero-desc {
+  display: block;
+  margin-top: 14rpx;
+  font-size: 26rpx;
+  color: var(--ink-2);
+}
+
+.masthead {
+  padding: 40rpx 0 20rpx;
+}
+
+.masthead-title {
+  display: block;
+  font-size: 40rpx;
+  font-weight: 600;
+  letter-spacing: 1rpx;
+}
+
+.masthead-desc {
+  display: block;
+  margin-top: 10rpx;
+  font-size: 25rpx;
+  color: var(--ink-3);
+}
+
+/* ---------- 区块 ---------- */
+
+.sec {
+  margin-top: 44rpx;
+}
+
+.sec-first {
+  margin-top: 28rpx;
+}
+
+.sec-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 20rpx;
+}
+
+.sec-title {
+  position: relative;
+  padding-left: 18rpx;
+  font-size: 30rpx;
+  font-weight: 600;
+}
+
+.sec-title::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 10rpx;
+  bottom: 10rpx;
+  width: 5rpx;
+  border-radius: 4rpx;
+  background: var(--brand);
+}
+
+.sec-more {
+  font-size: 24rpx;
+  color: var(--ink-3);
+}
+
+/* ---------- 面板与行 ---------- */
+
+.panel {
+  background: var(--card);
+  border: 1rpx solid var(--line);
+  border-radius: 12rpx;
+  overflow: hidden;
+}
+
+.panel-pad {
+  padding: 28rpx;
+}
+
+.row {
+  display: flex;
+  align-items: center;
+  padding: 28rpx;
+  border-bottom: 1rpx solid var(--line-soft);
+}
+
+.row:last-child {
+  border-bottom: 0;
+}
+
+.row-main {
+  flex: 1;
+  min-width: 0;
+}
+
+.row-title {
+  font-size: 30rpx;
+  font-weight: 500;
+}
+
+.row-text {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
+  margin-top: 8rpx;
+  font-size: 24rpx;
+  color: var(--ink-2);
+  line-height: 1.5;
+}
+
+.row-sub {
+  display: block;
+  margin-top: 8rpx;
+  font-size: 24rpx;
+  color: var(--ink-3);
+}
+
+.row-meta {
+  display: block;
+  margin-top: 10rpx;
+  font-size: 23rpx;
+  color: var(--ink-3);
+}
+
+.chev {
+  flex: none;
+  width: 14rpx;
+  height: 14rpx;
+  margin-left: 16rpx;
+  border-top: 2rpx solid var(--ink-3);
+  border-right: 2rpx solid var(--ink-3);
+  transform: rotate(45deg);
+}
+
+/* ---------- 文字 ---------- */
+
+.muted {
+  color: var(--ink-3);
+}
+
+.ink2 {
+  color: var(--ink-2);
+}
+
+.accent {
+  color: var(--accent);
+}
+
+.para {
+  display: block;
+  margin-top: 12rpx;
+  font-size: 27rpx;
+  line-height: 1.75;
+  color: var(--ink-2);
+}
+
+.link {
+  font-size: 26rpx;
+  color: var(--brand);
+}
+
+.link-danger {
+  font-size: 26rpx;
+  color: var(--danger);
+}
+
+/* ---------- 按钮 ---------- */
+
+.btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 88rpx;
+  padding: 0 32rpx;
+  border-radius: 10rpx;
+  font-size: 30rpx;
+  font-weight: 500;
+  letter-spacing: 1rpx;
+}
+
+.btn-primary {
+  background: var(--brand);
+  color: #ffffff;
+}
+
+.btn-line {
+  border: 1rpx solid var(--brand);
+  color: var(--brand);
+  background: transparent;
+}
+
+.btn-plain {
+  color: var(--ink-2);
+}
+
+.btn-block {
+  flex: 1;
+}
+
+.btn-sm {
+  height: 60rpx;
+  padding: 0 24rpx;
+  font-size: 26rpx;
+  border-radius: 8rpx;
+}
+
+.is-disabled {
+  opacity: 0.5;
+}
+
+.tap {
+  opacity: 0.72;
+}
+
+/* ---------- 标签 ---------- */
+
+.tag {
+  display: inline-block;
+  padding: 0 10rpx;
+  margin-right: 10rpx;
+  font-size: 20rpx;
+  line-height: 34rpx;
+  border-radius: 4rpx;
+  color: var(--ink-2);
+  background: var(--line-soft);
+}
+
+.tag-brand {
+  color: var(--brand-deep);
+  background: var(--brand-soft);
+}
+
+.tag-accent {
+  color: var(--accent);
+  background: var(--accent-soft);
+}
+
+/* ---------- 键值行 ---------- */
+
+.kv {
+  display: flex;
+  align-items: flex-start;
+  padding: 22rpx 28rpx;
+  border-bottom: 1rpx solid var(--line-soft);
+}
+
+.kv:last-child {
+  border-bottom: 0;
+}
+
+.k {
+  flex: none;
+  width: 150rpx;
+  font-size: 26rpx;
+  color: var(--ink-3);
+}
+
+.v {
+  flex: 1;
+  font-size: 27rpx;
+  color: var(--ink);
+}
+
+/* ---------- 分段器 ---------- */
+
+.seg {
+  display: flex;
+  margin: 28rpx 0 20rpx;
+  padding: 4rpx;
+  border-radius: 10rpx;
+  background: #eceeed;
+}
+
+.seg-item {
+  flex: 1;
+  height: 64rpx;
+  line-height: 64rpx;
+  text-align: center;
+  font-size: 26rpx;
+  color: var(--ink-2);
+  border-radius: 8rpx;
+}
+
+.seg-item.on {
+  background: #ffffff;
+  color: var(--ink);
+  font-weight: 500;
+  box-shadow: 0 1rpx 4rpx rgba(27, 35, 33, 0.08);
+}
+
+/* ---------- 表单 ---------- */
+
+.field {
+  display: flex;
+  align-items: center;
+  padding: 26rpx 28rpx;
+  border-bottom: 1rpx solid var(--line-soft);
+}
+
+.field:last-child {
+  border-bottom: 0;
+}
+
+.field-label {
+  flex: none;
+  width: 190rpx;
+  font-size: 27rpx;
+  color: var(--ink-2);
+}
+
+.field-input {
+  flex: 1;
+  height: 48rpx;
+  font-size: 29rpx;
+  color: var(--ink);
+}
+
+.field-value {
+  flex: 1;
+  font-size: 29rpx;
+  color: var(--ink);
+}
+
+.placeholder {
+  color: var(--ink-3);
+}
+
+/* ---------- 头像 ---------- */
+
+.avatar {
+  flex: none;
+  width: 88rpx;
+  height: 88rpx;
+  margin-right: 24rpx;
+  border-radius: 50%;
+  background: var(--brand-soft);
+  color: var(--brand-deep);
+  font-size: 34rpx;
+  font-weight: 600;
+  line-height: 88rpx;
+  text-align: center;
+}
+
+.avatar-lg {
+  width: 108rpx;
+  height: 108rpx;
+  margin-right: 28rpx;
+  line-height: 108rpx;
+  font-size: 42rpx;
+}
+
+/* ---------- 底部操作条 ---------- */
+
+.bottom-bar {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 20;
+  display: flex;
+  padding: 20rpx 32rpx;
+  padding-bottom: calc(20rpx + env(safe-area-inset-bottom));
+  background: rgba(255, 255, 255, 0.98);
+  border-top: 1rpx solid var(--line);
+}
+
+/* ---------- 弹层 ---------- */
+
+.mask {
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  z-index: 90;
+  background: rgba(18, 24, 22, 0.42);
+}
+
+.sheet {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 91;
+  display: flex;
+  flex-direction: column;
+  max-height: 84vh;
+  background: #ffffff;
+  border-radius: 20rpx 20rpx 0 0;
+  padding-bottom: env(safe-area-inset-bottom);
+}
+
+.sheet-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 30rpx 32rpx 22rpx;
+  border-bottom: 1rpx solid var(--line-soft);
+}
+
+.sheet-title {
+  font-size: 30rpx;
+  font-weight: 600;
+}
+
+.sheet-body {
+  flex: 1;
+  overflow-y: auto;
+}
+
+.sheet-foot {
+  display: flex;
+  padding: 20rpx 32rpx;
+  padding-bottom: calc(20rpx + env(safe-area-inset-bottom));
+  border-top: 1rpx solid var(--line-soft);
+}
+
+/* ---------- 状态与提示 ---------- */
+
+.status {
+  font-size: 24rpx;
+}
+
+.status-1,
+.status-2 {
+  color: var(--brand);
+}
+
+.status-3 {
+  color: var(--ink-3);
+}
+
+.status-4 {
+  color: var(--danger);
+}
+
+.alert {
+  margin-top: 28rpx;
+  padding: 26rpx 28rpx;
+  border-left: 6rpx solid var(--danger);
+  border-radius: 8rpx;
+  background: var(--danger-soft);
+}
+
+.alert-title {
+  display: block;
+  font-size: 27rpx;
+  font-weight: 600;
+  color: var(--danger);
+}
+
+.alert-text {
+  display: block;
+  margin-top: 8rpx;
+  font-size: 25rpx;
+  line-height: 1.65;
+  color: #6d3a33;
+}
+
+.note {
+  display: block;
+  margin-top: 22rpx;
+  font-size: 24rpx;
+  line-height: 1.7;
+  color: var(--ink-3);
+}
+
+.divider {
+  height: 1rpx;
+  background: var(--line-soft);
+}
+
+.load-more {
+  padding: 36rpx 0;
+  text-align: center;
+  font-size: 24rpx;
+  color: var(--ink-3);
+}
+
+.footer-space {
+  height: 40rpx;
+}

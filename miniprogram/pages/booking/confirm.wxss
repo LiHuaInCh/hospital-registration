@@ -1,0 +1,9 @@
+.info {
+  margin-top: 16rpx;
+}
+
+.chosen {
+  flex: none;
+  font-size: 24rpx;
+  color: var(--brand);
+}

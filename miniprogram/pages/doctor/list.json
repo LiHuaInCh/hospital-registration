@@ -1,0 +1,6 @@
+{
+  "navigationBarTitleText": "医生",
+  "usingComponents": {
+    "empty-state": "../../components/empty-state/empty-state"
+  }
+}

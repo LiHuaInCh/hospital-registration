@@ -1,0 +1,98 @@
+.login {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  padding-top: 120rpx;
+}
+
+.brand {
+  text-align: center;
+}
+
+.brand-mark {
+  position: relative;
+  width: 104rpx;
+  height: 104rpx;
+  margin: 0 auto 28rpx;
+  border-radius: 22rpx;
+  background: var(--brand);
+}
+
+.brand-bar {
+  position: absolute;
+  background: #ffffff;
+  border-radius: 3rpx;
+}
+
+.brand-bar-v {
+  left: 47rpx;
+  top: 26rpx;
+  width: 10rpx;
+  height: 52rpx;
+}
+
+.brand-bar-h {
+  left: 26rpx;
+  top: 47rpx;
+  width: 52rpx;
+  height: 10rpx;
+}
+
+.brand-name {
+  display: block;
+  font-size: 38rpx;
+  font-weight: 600;
+  letter-spacing: 2rpx;
+}
+
+.brand-sub {
+  display: block;
+  margin-top: 10rpx;
+  font-size: 24rpx;
+  letter-spacing: 2rpx;
+  color: var(--ink-3);
+}
+
+.login-body {
+  margin-top: 120rpx;
+  padding: 0;
+}
+
+.login-title {
+  display: block;
+  font-size: 34rpx;
+  font-weight: 600;
+}
+
+.login-desc {
+  display: block;
+  margin-top: 12rpx;
+  font-size: 26rpx;
+  line-height: 1.7;
+  color: var(--ink-2);
+}
+
+.login-btn {
+  margin-top: 48rpx;
+}
+
+.login-note {
+  display: block;
+  margin-top: 28rpx;
+  font-size: 22rpx;
+  line-height: 1.7;
+  color: var(--ink-3);
+}
+
+.login-foot {
+  margin-top: auto;
+  padding: 60rpx 0 40rpx;
+  display: flex;
+  justify-content: space-between;
+}
+
+.foot-line {
+  font-size: 22rpx;
+  letter-spacing: 1rpx;
+  color: var(--ink-3);
+}

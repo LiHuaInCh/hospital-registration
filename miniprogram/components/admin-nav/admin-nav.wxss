@@ -1,0 +1,33 @@
+.admin-nav {
+  display: flex;
+  padding: 8rpx 0 0;
+  border-bottom: 1rpx solid #e4e8e6;
+  background: #ffffff;
+}
+
+.nav-item {
+  position: relative;
+  flex: 1;
+  height: 84rpx;
+  line-height: 84rpx;
+  text-align: center;
+  font-size: 27rpx;
+  color: #5b6764;
+}
+
+.nav-item.on {
+  color: #0f6b5c;
+  font-weight: 600;
+}
+
+.nav-item.on::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  width: 40rpx;
+  height: 4rpx;
+  margin-left: -20rpx;
+  border-radius: 2rpx;
+  background: #0f6b5c;
+}

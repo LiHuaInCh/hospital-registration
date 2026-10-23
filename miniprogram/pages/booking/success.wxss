@@ -1,0 +1,72 @@
+.result {
+  padding: 80rpx 0 48rpx;
+  text-align: center;
+}
+
+.check-circle {
+  width: 116rpx;
+  height: 116rpx;
+  margin: 0 auto 30rpx;
+  border: 3rpx solid var(--brand);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.check-mark {
+  width: 44rpx;
+  height: 22rpx;
+  margin-top: -8rpx;
+  border-left: 4rpx solid var(--brand);
+  border-bottom: 4rpx solid var(--brand);
+  transform: rotate(-45deg);
+}
+
+.result-title {
+  display: block;
+  font-size: 40rpx;
+  font-weight: 600;
+  letter-spacing: 1rpx;
+}
+
+.result-sub {
+  display: block;
+  margin-top: 10rpx;
+  font-size: 25rpx;
+  color: var(--ink-3);
+}
+
+.tips {
+  margin-top: 32rpx;
+  padding: 26rpx 0 4rpx;
+  border-top: 1rpx solid var(--line);
+}
+
+.tips-title {
+  display: block;
+  margin-bottom: 12rpx;
+  font-size: 25rpx;
+  font-weight: 600;
+  color: var(--ink-2);
+}
+
+.tips-item {
+  display: block;
+  font-size: 24rpx;
+  line-height: 1.9;
+  color: var(--ink-2);
+}
+
+.actions {
+  display: flex;
+  margin-top: 48rpx;
+}
+
+.actions .btn {
+  flex: 1;
+}
+
+.actions .btn + .btn {
+  margin-left: 20rpx;
+}

@@ -1,0 +1,8 @@
+{
+  "navigationBarTitleText": "挂号单管理",
+  "enablePullDownRefresh": true,
+  "usingComponents": {
+    "admin-nav": "../../../components/admin-nav/admin-nav",
+    "empty-state": "../../../components/empty-state/empty-state"
+  }
+}

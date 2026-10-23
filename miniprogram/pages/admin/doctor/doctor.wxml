@@ -1,0 +1,78 @@
+<admin-nav active="doctor" />
+
+<view class="admin-page">
+  <view class="admin-head">
+    <text class="admin-title">医生管理</text>
+    <view class="btn btn-primary btn-sm" hover-class="tap" bindtap="showAdd">新增医生</view>
+  </view>
+  <text class="admin-sub">共 {{doctors.length}} 位在岗医生</text>
+
+  <view class="panel" wx:if="{{doctors.length}}">
+    <view class="admin-item" wx:for="{{doctors}}" wx:key="id">
+      <view class="admin-item-main">
+        <view class="row-title">
+          {{item.name}}
+          <text class="tag tag-brand" wx:if="{{item.title}}">{{item.title}}</text>
+        </view>
+        <text class="row-sub">{{item.departmentName}}　挂号费 ¥{{item.fee}}</text>
+        <text class="row-sub">{{item.specialty || '未填写擅长领域'}}</text>
+      </view>
+      <view class="admin-actions">
+        <text bindtap="showEdit" data-id="{{item.id}}">编辑</text>
+        <text class="danger" bindtap="remove" data-id="{{item.id}}">删除</text>
+      </view>
+    </view>
+  </view>
+
+  <empty-state wx:if="{{!loading && !doctors.length}}" text="还没有医生" hint="点击右上角新增医生" />
+</view>
+
+<view class="mask" wx:if="{{showDialog}}" bindtap="close"></view>
+<view class="sheet" wx:if="{{showDialog}}">
+  <view class="sheet-head">
+    <text class="sheet-title">{{isEdit ? '编辑医生' : '新增医生'}}</text>
+    <text class="link" bindtap="close">关闭</text>
+  </view>
+  <scroll-view class="sheet-body" scroll-y>
+    <view class="form-block">
+      <text class="form-label">姓名</text>
+      <input class="form-input" value="{{form.name}}" data-field="name" bindinput="onField" placeholder="医生姓名" maxlength="30" />
+
+      <text class="form-label">所属科室</text>
+      <picker range="{{departments}}" range-key="name" value="{{deptIndex}}" bindchange="onDeptChange">
+        <view class="form-pick">
+          <text>{{departments[deptIndex].name || '选择科室'}}</text>
+          <view class="chev"></view>
+        </view>
+      </picker>
+
+      <text class="form-label">职称</text>
+      <picker range="{{titles}}" value="{{titleIndex}}" bindchange="onTitleChange">
+        <view class="form-pick">
+          <text>{{titles[titleIndex]}}</text>
+          <view class="chev"></view>
+        </view>
+      </picker>
+
+      <text class="form-label">性别</text>
+      <view class="form-gender">
+        <view class="{{form.gender === 1 ? 'on' : ''}}" data-gender="1" bindtap="onGender">男</view>
+        <view class="{{form.gender === 2 ? 'on' : ''}}" data-gender="2" bindtap="onGender">女</view>
+      </view>
+
+      <text class="form-label">挂号费（元）</text>
+      <input class="form-input" type="digit" value="{{form.consultationFee}}" data-field="consultationFee" bindinput="onField" placeholder="如：50" />
+
+      <text class="form-label">擅长领域</text>
+      <input class="form-input" value="{{form.specialty}}" data-field="specialty" bindinput="onField" placeholder="如：慢阻肺、支气管哮喘" maxlength="200" />
+
+      <text class="form-label">医生简介</text>
+      <textarea class="form-textarea" value="{{form.description}}" data-field="description" bindinput="onField" placeholder="选填" maxlength="500" />
+    </view>
+  </scroll-view>
+  <view class="sheet-foot">
+    <view class="btn btn-primary btn-block {{saving ? 'is-disabled' : ''}}" hover-class="tap" bindtap="save">
+      {{saving ? '保存中…' : '保存'}}
+    </view>
+  </view>
+</view>

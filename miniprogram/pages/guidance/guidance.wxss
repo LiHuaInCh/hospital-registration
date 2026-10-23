@@ -1,0 +1,108 @@
+.input-panel {
+  margin-top: 8rpx;
+  padding: 26rpx 28rpx 20rpx;
+}
+
+.symptom {
+  width: 100%;
+  min-height: 150rpx;
+  font-size: 28rpx;
+  line-height: 1.65;
+  color: var(--ink);
+}
+
+.input-foot {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 16rpx;
+  padding-top: 16rpx;
+  border-top: 1rpx solid var(--line-soft);
+}
+
+.counter {
+  font-size: 22rpx;
+  color: var(--ink-3);
+}
+
+.chips {
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: 18rpx;
+}
+
+.chip {
+  margin: 0 14rpx 14rpx 0;
+  padding: 10rpx 20rpx;
+  border: 1rpx solid var(--line);
+  border-radius: 6rpx;
+  background: #ffffff;
+  font-size: 24rpx;
+  color: var(--ink-2);
+}
+
+.triage {
+  padding: 28rpx;
+  border-bottom: 1rpx solid var(--line-soft);
+}
+
+.triage:last-child {
+  border-bottom: 0;
+}
+
+.triage-head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+}
+
+.triage-name {
+  font-size: 31rpx;
+  font-weight: 600;
+}
+
+.triage-conf {
+  font-size: 23rpx;
+  color: var(--brand);
+}
+
+.bar {
+  height: 5rpx;
+  margin-top: 16rpx;
+  border-radius: 3rpx;
+  background: var(--line-soft);
+  overflow: hidden;
+}
+
+.bar-fill {
+  height: 100%;
+  border-radius: 3rpx;
+  background: var(--brand);
+}
+
+.triage-desc {
+  display: block;
+  margin-top: 16rpx;
+  font-size: 24rpx;
+  line-height: 1.6;
+  color: var(--ink-2);
+}
+
+.triage-foot {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 16rpx;
+}
+
+.keywords {
+  flex: 1;
+  min-width: 0;
+}
+
+.triage-location {
+  flex: none;
+  margin-left: 16rpx;
+  font-size: 22rpx;
+  color: var(--ink-3);
+}

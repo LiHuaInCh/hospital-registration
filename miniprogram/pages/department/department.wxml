@@ -1,0 +1,29 @@
+<view class="page">
+  <view class="masthead">
+    <text class="masthead-title">全部科室</text>
+    <text class="masthead-desc">共 {{departments.length}} 个科室，按科室序号排列</text>
+  </view>
+
+  <view class="panel">
+    <view
+      class="row dept"
+      wx:for="{{departments}}"
+      wx:key="id"
+      hover-class="tap"
+      data-id="{{item.id}}"
+      data-name="{{item.name}}"
+      bindtap="goDoctors"
+    >
+      <text class="dept-no">{{item.no}}</text>
+      <view class="row-main">
+        <text class="row-title">{{item.name}}</text>
+        <text class="row-text">{{item.description || '暂无科室简介'}}</text>
+        <text class="row-meta">{{item.location || '门诊楼'}} · {{item.doctorCount}} 位医生</text>
+      </view>
+      <view class="chev"></view>
+    </view>
+  </view>
+
+  <text class="note">以上科室信息以医院当日公示为准，如需帮助请咨询门诊导诊台。</text>
+  <view class="footer-space"></view>
+</view>

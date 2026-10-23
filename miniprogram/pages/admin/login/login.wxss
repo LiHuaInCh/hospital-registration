@@ -1,0 +1,41 @@
+.admin-login {
+  padding-top: 100rpx;
+}
+
+.login-brand {
+  padding-bottom: 48rpx;
+}
+
+.login-kicker {
+  display: block;
+  font-size: 20rpx;
+  letter-spacing: 4rpx;
+  color: var(--ink-3);
+}
+
+.login-title {
+  display: block;
+  margin-top: 14rpx;
+  font-size: 44rpx;
+  font-weight: 600;
+  letter-spacing: 2rpx;
+}
+
+.login-desc {
+  display: block;
+  margin-top: 12rpx;
+  font-size: 25rpx;
+  color: var(--ink-2);
+}
+
+.login-submit {
+  margin-top: 40rpx;
+}
+
+.login-note {
+  display: block;
+  margin-top: 24rpx;
+  font-size: 22rpx;
+  line-height: 1.7;
+  color: var(--ink-3);
+}

@@ -1,0 +1,48 @@
+<view class="page" wx:if="{{order}}">
+  <view class="result">
+    <view class="check-circle">
+      <view class="check-mark"></view>
+    </view>
+    <text class="result-title">预约成功</text>
+    <text class="result-sub">请按预约时段到院就诊</text>
+  </view>
+
+  <view class="panel">
+    <view class="kv">
+      <text class="k">挂号单号</text>
+      <text class="v">{{order.id}}</text>
+    </view>
+    <view class="kv">
+      <text class="k">就诊人</text>
+      <text class="v">{{order.patientName}}</text>
+    </view>
+    <view class="kv">
+      <text class="k">科室</text>
+      <text class="v">{{order.departmentName}}</text>
+    </view>
+    <view class="kv">
+      <text class="k">医生</text>
+      <text class="v">{{order.doctorName}}{{order.title ? '　' + order.title : ''}}</text>
+    </view>
+    <view class="kv">
+      <text class="k">就诊时间</text>
+      <text class="v">{{dateText}}　{{timeText}}</text>
+    </view>
+    <view class="kv">
+      <text class="k">挂号费</text>
+      <text class="v accent">¥{{fee}}</text>
+    </view>
+  </view>
+
+  <view class="tips">
+    <text class="tips-title">就诊提示</text>
+    <text class="tips-item">1. 请携带就诊人身份证或就诊卡到院取号。</text>
+    <text class="tips-item">2. 建议提前 15 分钟到达对应科室候诊区。</text>
+    <text class="tips-item">3. 如需取消，请在就诊前 2 小时以上操作。</text>
+  </view>
+
+  <view class="actions">
+    <view class="btn btn-line" hover-class="tap" bindtap="goOrders">查看挂号记录</view>
+    <view class="btn btn-primary" hover-class="tap" bindtap="goHome">返回首页</view>
+  </view>
+</view>

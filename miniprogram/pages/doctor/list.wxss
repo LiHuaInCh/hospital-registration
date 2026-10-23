@@ -1,0 +1,117 @@
+.search {
+  display: flex;
+  align-items: center;
+  height: 84rpx;
+  margin-top: 24rpx;
+  padding: 0 24rpx;
+  border: 1rpx solid var(--line);
+  border-radius: 10rpx;
+  background: #ffffff;
+}
+
+.search-icon {
+  flex: none;
+  width: 32rpx;
+  height: 32rpx;
+  margin-right: 14rpx;
+}
+
+.search-input {
+  flex: 1;
+  height: 48rpx;
+  font-size: 27rpx;
+}
+
+.search-placeholder {
+  color: var(--ink-3);
+}
+
+.search-clear {
+  margin-right: 18rpx;
+  font-size: 24rpx;
+  color: var(--ink-3);
+}
+
+.search-action {
+  flex: none;
+  font-size: 27rpx;
+  color: var(--brand);
+}
+
+.filter-line {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  padding: 28rpx 2rpx 18rpx;
+}
+
+.filter-name {
+  font-size: 27rpx;
+  color: var(--ink-2);
+}
+
+.filter-count {
+  font-size: 23rpx;
+  color: var(--ink-3);
+}
+
+.doctor {
+  display: flex;
+  align-items: flex-start;
+  padding: 28rpx;
+  border-bottom: 1rpx solid var(--line-soft);
+}
+
+.doctor:last-child {
+  border-bottom: 0;
+}
+
+.doctor-main {
+  flex: 1;
+  min-width: 0;
+}
+
+.doctor-line {
+  display: flex;
+  align-items: center;
+}
+
+.doctor-name {
+  margin-right: 12rpx;
+  font-size: 31rpx;
+  font-weight: 600;
+}
+
+.doctor-dept {
+  display: block;
+  margin-top: 6rpx;
+  font-size: 23rpx;
+  color: var(--ink-3);
+}
+
+.doctor-skill {
+  display: block;
+  margin-top: 10rpx;
+  font-size: 24rpx;
+  line-height: 1.55;
+  color: var(--ink-2);
+}
+
+.doctor-fee {
+  flex: none;
+  padding-left: 20rpx;
+  text-align: right;
+}
+
+.fee {
+  display: block;
+  font-size: 28rpx;
+  color: var(--accent);
+}
+
+.fee-label {
+  display: block;
+  margin-top: 4rpx;
+  font-size: 20rpx;
+  color: var(--ink-3);
+}

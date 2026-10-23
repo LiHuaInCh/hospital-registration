@@ -1,0 +1,45 @@
+<view class="page page-with-bar" wx:if="{{doctor}}">
+  <view class="profile">
+    <view class="avatar avatar-lg">{{initial}}</view>
+    <view class="profile-main">
+      <view class="profile-name">
+        <text class="name">{{doctor.name}}</text>
+        <text class="tag tag-brand" wx:if="{{doctor.title}}">{{doctor.title}}</text>
+      </view>
+      <text class="profile-dept">{{doctor.departmentName}}</text>
+      <text class="profile-fee">挂号费 ¥{{fee}}</text>
+    </view>
+  </view>
+
+  <view class="sec">
+    <text class="sec-title">擅长领域</text>
+    <text class="para">{{doctor.specialty || '暂无信息'}}</text>
+  </view>
+
+  <view class="sec">
+    <text class="sec-title">医生简介</text>
+    <text class="para">{{doctor.description || '暂无简介'}}</text>
+  </view>
+
+  <view class="sec">
+    <text class="sec-title">门诊信息</text>
+    <view class="panel info">
+      <view class="kv">
+        <text class="k">所属科室</text>
+        <text class="v">{{doctor.departmentName}}</text>
+      </view>
+      <view class="kv">
+        <text class="k">职称</text>
+        <text class="v">{{doctor.title || '—'}}</text>
+      </view>
+      <view class="kv">
+        <text class="k">挂号费</text>
+        <text class="v accent">¥{{fee}}</text>
+      </view>
+    </view>
+  </view>
+
+  <view class="bottom-bar">
+    <view class="btn btn-primary btn-block" hover-class="tap" bindtap="goSchedule">查看排班并预约</view>
+  </view>
+</view>

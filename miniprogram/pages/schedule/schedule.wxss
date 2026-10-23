@@ -1,0 +1,116 @@
+.doctor-strip {
+  display: flex;
+  align-items: center;
+  padding: 32rpx 0 28rpx;
+}
+
+.strip-main {
+  flex: 1;
+  min-width: 0;
+}
+
+.strip-line {
+  display: flex;
+  align-items: center;
+}
+
+.strip-name {
+  margin-right: 12rpx;
+  font-size: 32rpx;
+  font-weight: 600;
+}
+
+.strip-sub {
+  display: block;
+  margin-top: 6rpx;
+  font-size: 24rpx;
+  color: var(--ink-3);
+}
+
+.dates {
+  white-space: nowrap;
+  margin: 0 -32rpx;
+  padding: 0 32rpx;
+}
+
+.date {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 96rpx;
+  height: 116rpx;
+  margin-right: 16rpx;
+  border: 1rpx solid var(--line);
+  border-radius: 10rpx;
+  background: #ffffff;
+}
+
+.date.on {
+  border-color: var(--brand);
+  background: var(--brand);
+}
+
+.date-week {
+  font-size: 22rpx;
+  color: var(--ink-3);
+}
+
+.date-day {
+  margin-top: 6rpx;
+  font-size: 32rpx;
+  font-weight: 600;
+  color: var(--ink);
+}
+
+.date.on .date-week,
+.date.on .date-day {
+  color: #ffffff;
+}
+
+.slot {
+  display: flex;
+  align-items: center;
+  padding: 30rpx 28rpx;
+  border-bottom: 1rpx solid var(--line-soft);
+}
+
+.slot:last-child {
+  border-bottom: 0;
+}
+
+.slot.off {
+  opacity: 0.55;
+}
+
+.slot-main {
+  flex: 1;
+}
+
+.slot-name {
+  display: block;
+  font-size: 30rpx;
+  font-weight: 500;
+}
+
+.slot-range {
+  display: block;
+  margin-top: 6rpx;
+  font-size: 24rpx;
+  color: var(--ink-3);
+}
+
+.slot-right {
+  display: flex;
+  align-items: center;
+}
+
+.slot-remain {
+  font-size: 24rpx;
+  color: var(--brand);
+}
+
+.slot-full {
+  font-size: 24rpx;
+  color: var(--ink-3);
+}
